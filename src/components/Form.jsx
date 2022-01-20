@@ -4,7 +4,9 @@ import '../styles/Form.css'
 import Swal from 'sweetalert2'
 import { useForm } from '../hooks/useForm';
 import { postUser } from '../helpers/postUser';
+import { getUser } from '../helpers/getUser';
 
+let usrsObj ={}
 
 export const Form = () => {
     const [values, handleInputChange] = useForm({
@@ -30,9 +32,10 @@ export const Form = () => {
     const handleAdd = () => {
         if(isFormValid()){
 
-            values.completeName = values.firstName + ' ' + values.lastName
-           
-           postUser(values)
+          values.completeName = values.firstName + ' ' + values.lastName
+           console.log(values)
+           usrsObj = getUser()
+           postUser(usrsObj)
         }
     }
      const isFormValid = () =>{
