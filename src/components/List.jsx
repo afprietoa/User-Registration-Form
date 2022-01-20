@@ -108,7 +108,7 @@ export const List = () => {
                             </tbody>
                         ) :
                         (
-                            <tbody>
+                            <tbody onClick={() =>window.location.reload()}>
 
 
 
@@ -128,7 +128,7 @@ export const List = () => {
                                 </tr>
                             
                              </tbody>
-                             {() => window.location.reload()}()
+                             
                         )
 
                     }
