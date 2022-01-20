@@ -1,0 +1,14 @@
+.form-container {
+    height: 100%;
+    padding: 5% 10%;
+    
+    align-content: center;
+    margin: 10%;
+    margin-bottom:0;
+    border: 1px solid lightgray;
+}
+
+.form-container h1{
+    margin-top: 10%;
+    margin-right: 20%;
+}
