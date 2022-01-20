@@ -1,9 +1,24 @@
 import React from 'react';
 import useAxiosNatl from '../hooks/useAxiosNatl';
 import '../styles/Form.css'
+import Swal from 'sweetalert2'
+import { useForm } from '../hooks/useForm';
+import { postUser } from '../helpers/postUser';
+
 
 export const Form = () => {
-
+    const [values, handleInputChange] = useForm({
+        firstName: "",
+        lastName: "",
+        completeName: "",
+        email: "",
+        sicCode: "",
+        sicCodeType: "",
+        mobilePhone: "",
+        nationality: "",
+        createdBy: "Andrés Prieto",
+    })
+    const {firstName, lastName, email, sicCode, sicCodeType, mobilePhone, nationality } = values
 
     const {data:natls} = useAxiosNatl()
     console.log(natls)
@@ -11,12 +26,26 @@ export const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
-    const handleChange = () => {
 
-    }
     const handleAdd = () => {
-
+        if(isFormValid()){
+           values.completeName = values.firstName + ' ' + values.lastName
+           postUser(values)
+        }
     }
+     const isFormValid = () =>{
+         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+         if(!regex.test(values.email)){
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '¡E-mail incorrecto!',
+          })
+          return false
+         }
+        return true
+
+     }
 
     return (
         <div className="form-container">
@@ -31,26 +60,26 @@ export const Form = () => {
                         <div className="form-group col-md-10">
                             <label>Tipo Documento</label><br />
 
-                            <select className="form-control " name="typeId" onChange={handleChange} required >
+                            <select className="form-control " name="sicCodeType" value={sicCodeType} onChange={handleInputChange} required >
                                 <option name="Seleccionar" value="Seleccionar">Seleccionar</option>
-                                <option name="C.C" value="C.C">C.C</option>
-                                <option name="T.P" value="T.P">T.P</option>
-                                <option name="C.E" value="C.E">C.E</option>
+                                <option name="cédula de ciudadanía" value="cédula de ciudadanía">C.C</option>
+                                <option name="Pasaporte" value="Pasaporte">T.P</option>
+                                <option name="cédula de extranjería" value="cédula de extranjería">C.E</option>
                             </select>
                         </div>
                         <div className="form-group col-md-10">
                             <label>Nombre(s)</label><br />
 
-                            <input className="form-control" name="names" onChange={handleChange} required />
+                            <input className="form-control" name="firstName" value={firstName} onChange={handleInputChange} required />
                         </div>
                         <div className="form-group col-md-10">
                             <label>Nacionalidad</label><br />
 
-                            <select className="form-control " name="nationality" onChange={handleChange} required >
+                            <select className="form-control " name="nationality" value={nationality} onChange={handleInputChange} required >
                                 <option name="Seleccionar" value="Seleccionar">Seleccionar</option>
                                 {
                                     natls.map((ctry, idx) =>(
-                                        <option name={ctry.name} value={ctry.name}>{ctry.name}</option>
+                                        <option key={idx} name={ctry.name} value={ctry.name}>{ctry.name}</option>
                                     ))
                                 }
                                 
@@ -60,7 +89,7 @@ export const Form = () => {
                         <div className="form-group col-md-10">
                             <label>Email</label><br />
 
-                            <input className="form-control" name="email" onChange={handleChange} required />
+                            <input className="form-control" name="email" value={email} onChange={handleInputChange} required />
                         </div>
 
 
@@ -71,18 +100,18 @@ export const Form = () => {
                         <div className="form-group col-md-10 ms-4">
                             <label>Identificación</label><br />
 
-                            <input className="form-control" type="number" name="idNum" onChange={handleChange} />
+                            <input className="form-control" type="number" name="sicCode" value={sicCode} onChange={handleInputChange} />
                         </div>
 
                         <div className="form-group col-md-10 ms-4">
                             <label>Apellidos</label><br />
 
-                            <input className="form-control" name="lastNames" onChange={handleChange} />
+                            <input className="form-control" name="lastName" value={lastName} onChange={handleInputChange} />
                         </div>
                         <div className="form-group col-md-10 ms-4">
                             <label>Celular</label><br />
 
-                            <input className="form-control" type="number" name="cel" onChange={handleChange} />
+                            <input className="form-control" type="number" name="mobilePhone" value={mobilePhone} onChange={handleInputChange} />
                         </div>
 
                         <br />
