@@ -1,3 +1,6 @@
+:root{
+    --quaternary: #EEF2F4;;
+  }
 .list-container{
     height: 100%;
     padding: 5%;
@@ -5,10 +8,13 @@
     margin: 5%;
 }
 table{
-    background-color: white;
+    background-color: #EEF2F4;;
     text-align: left;
     border-collapse: collapse;
     animation: moverDerecha 5s ease-in;
+  }
+  table th{
+      color: #fff;
   }
   
   td, th{
@@ -16,9 +22,9 @@ table{
   }
 
 thead{
-    background-color: #fff;
+    background: #6873bA;
     border-bottom: 5px solid black;
-    color: black;
+    
     font-size:20px;
   }
 tr:nth-child(even){
@@ -26,6 +32,6 @@ tr:nth-child(even){
 }
     
 tr:hover td{
-    background-color: rgb(128, 128, 128);
+    background-color: rgba(0, 128, 128, 0.479);
     color: white;
 }

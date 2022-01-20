@@ -78,15 +78,15 @@ export const Form = () => {
     return (
         <div className="form-container">
             <form id="form" onSubmit={handleSubmit}>
-                <h2>Registro de usuarios</h2>
+                <h1>Registro de usuarios</h1>
                 <hr />
 
                 <div className="form-grp">
 
 
                     <div className="left-grp">
-                        <div className="form-group col-md-10">
-                            <label>Tipo Documento</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Tipo Documento :</label><br />
 
                             <select className="form-control " name="sicCodeType" value={sicCodeType} onChange={handleInputChange} >
                                 <option name="Seleccionar" value="">Seleccionar</option>
@@ -95,13 +95,13 @@ export const Form = () => {
                                 <option name="cédula de extranjería" value="cédula de extranjería">cédula de extranjería</option>
                             </select>
                         </div>
-                        <div className="form-group col-md-10">
-                            <label>Nombre(s)</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Nombre(s) :</label><br />
 
                             <input className="form-control" name="firstName" value={firstName} onChange={handleInputChange} />
                         </div>
-                        <div className="form-group col-md-10">
-                            <label>Nacionalidad</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Nacionalidad :</label><br />
 
                             <select className="form-control " name="nationality" value={nationality} onChange={handleInputChange} >
                                 <option name="Seleccionar" value="">Seleccionar</option>
@@ -114,8 +114,8 @@ export const Form = () => {
 
                             </select>
                         </div>
-                        <div className="form-group col-md-10">
-                            <label>Email</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Email :</label><br />
 
                             <input className="form-control" name="email" value={email} onChange={handleInputChange} />
                         </div>
@@ -125,26 +125,26 @@ export const Form = () => {
                     </div>
 
                     <div className="right-grp">
-                        <div className="form-group col-md-10 ">
-                            <label>Identificación</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Identificación :</label><br />
 
                             <input className="form-control" type="number" name="sicCode" value={sicCode} onChange={handleInputChange} />
                         </div>
 
-                        <div className="form-group col-md-10 ">
-                            <label>Apellidos</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Apellidos :</label><br />
 
                             <input className="form-control" name="lastName" value={lastName} onChange={handleInputChange} />
                         </div>
-                        <div className="form-group col-md-10 ">
-                            <label>Celular</label><br />
+                        <div className="form-group col-md-10 mb-3">
+                            <label>Celular :</label><br />
 
                             <input className="form-control" type="number" name="mobilePhone" value={mobilePhone} onChange={handleInputChange} />
                         </div>
 
                         <br />
-                        <div className=' col-md-10'>
-                            <button className="btn btn-secondary w-100 btn-lg" type="button" onClick={() => handleAdd()}>+ Agregar</button>
+                        <div className=' col-md-10 '>
+                            <button className="bttn bttn-black" type="button" onClick={() => handleAdd()}><span>+ Agregar</span></button>
                         </div>
                     </div>
 
