@@ -7,3 +7,35 @@
     margin-bottom:0;
     border: 1px solid lightgray;
 }
+
+.left-grp, .right-grp{
+    width: 100%;
+}
+
+@media(min-width: 1024px){
+    .form-grp{
+        display: flex;
+    }
+    .right-grp div{
+        margin-left: 5rem;
+    }
+
+}
+@media(max-width: 600px){
+    .form-grp{
+        display: block;
+    }
+    .right-grp div{
+        margin-left: 0rem;
+    }
+
+}
+@media(max-width: 400px){
+    .form-grp{
+        display: block;
+    }
+    .right-grp div{
+        margin-left: 0rem;
+    }
+
+}

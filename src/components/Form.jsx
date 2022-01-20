@@ -29,7 +29,9 @@ export const Form = () => {
 
     const handleAdd = () => {
         if(isFormValid()){
-           values.completeName = values.firstName + ' ' + values.lastName
+
+            values.completeName = values.firstName + ' ' + values.lastName
+           
            postUser(values)
         }
     }
@@ -53,18 +55,18 @@ export const Form = () => {
                 <h2>Registro de usuarios</h2>
                 <hr />
 
-                <div className="d-flex">
+                <div className="form-grp">
 
 
-                    <div className="w-100">
+                    <div className="left-grp">
                         <div className="form-group col-md-10">
                             <label>Tipo Documento</label><br />
 
                             <select className="form-control " name="sicCodeType" value={sicCodeType} onChange={handleInputChange} required >
-                                <option name="Seleccionar" value="Seleccionar">Seleccionar</option>
-                                <option name="cédula de ciudadanía" value="cédula de ciudadanía">C.C</option>
-                                <option name="Pasaporte" value="Pasaporte">T.P</option>
-                                <option name="cédula de extranjería" value="cédula de extranjería">C.E</option>
+                                <option name="Seleccionar" value="none">Seleccionar</option>
+                                <option name="cédula de ciudadanía" value="cédula de ciudadanía">cédula de ciudadanía</option>
+                                <option name="Pasaporte" value="Pasaporte">Pasaporte</option>
+                                <option name="cédula de extranjería" value="cédula de extranjería">cédula de extranjería</option>
                             </select>
                         </div>
                         <div className="form-group col-md-10">
@@ -96,26 +98,26 @@ export const Form = () => {
 
                     </div>
 
-                    <div className="w-100">
-                        <div className="form-group col-md-10 ms-4">
+                    <div className="right-grp">
+                        <div className="form-group col-md-10 ">
                             <label>Identificación</label><br />
 
                             <input className="form-control" type="number" name="sicCode" value={sicCode} onChange={handleInputChange} />
                         </div>
 
-                        <div className="form-group col-md-10 ms-4">
+                        <div className="form-group col-md-10 ">
                             <label>Apellidos</label><br />
 
                             <input className="form-control" name="lastName" value={lastName} onChange={handleInputChange} />
                         </div>
-                        <div className="form-group col-md-10 ms-4">
+                        <div className="form-group col-md-10 ">
                             <label>Celular</label><br />
 
                             <input className="form-control" type="number" name="mobilePhone" value={mobilePhone} onChange={handleInputChange} />
                         </div>
 
                         <br />
-                        <div className='ms-4 col-md-10'>
+                        <div className=' col-md-10'>
                             <button className="btn btn-secondary w-100 btn-lg" type="button" onClick={() => handleAdd()}>+ Agregar</button>
                         </div>
                     </div>

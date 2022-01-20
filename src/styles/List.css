@@ -4,3 +4,28 @@
     align-content: center;
     margin: 5%;
 }
+table{
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    animation: moverDerecha 5s ease-in;
+  }
+  
+  td, th{
+    color: black;
+  }
+
+thead{
+    background-color: #fff;
+    border-bottom: 5px solid black;
+    color: black;
+    font-size:20px;
+  }
+tr:nth-child(even){
+   background-color: #ddd;
+}
+    
+tr:hover td{
+    background-color: rgb(128, 128, 128);
+    color: white;
+}
