@@ -4,6 +4,7 @@ import '../styles/List.css'
 
 export const List = () => {
 
+    
     const { data: users } = useAxiosUser()
     console.log(users)
 
@@ -113,26 +114,24 @@ export const List = () => {
 
                                 <tr >
 
-                                    <td>C?-sicCode</td>
+                                    <td>CC - 1098765432</td>
 
-                                    <td>usr.completeName</td>
+                                    <td>Jennifer Restrepo</td>
 
-                                    <td>nationality</td>
+                                    <td>Colombia</td>
 
-                                    <td>mobilePhone</td>
+                                    <td>3120987654</td>
 
-                                    <td>email</td>
+                                    <td>Jennifer@innventa.com</td>
 
 
                                 </tr>
-                                )
+                            
+                             </tbody>
+                        )
 
                     }
-
-
-                            </tbody>
-                        )
-                }
+                
 
             </table>
         </div>
