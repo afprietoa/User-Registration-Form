@@ -4,7 +4,7 @@ import '../styles/List.css'
 
 export const List = () => {
 
-    
+
     const { data: users } = useAxiosUser()
     console.log(users)
 
@@ -108,31 +108,36 @@ export const List = () => {
                             </tbody>
                         ) :
                         (
-                            <tbody onClick={() =>window.location.reload()}>
-
-
+                            <tbody onClick={() => window.location.reload()}>
 
                                 <tr >
-
-                                    <td>CC - 1098765432</td>
-
-                                    <td>Jennifer Restrepo</td>
-
+                                    <td>CC - 1022123123</td>
+                                    <td>Carlos Ríos</td>
                                     <td>Colombia</td>
-
-                                    <td>3120987654</td>
-
-                                    <td>Jennifer@innventa.com</td>
-
-
+                                    <td>3001230987</td>
+                                    <td>carlos@innventa.com</td>
                                 </tr>
-                            
-                             </tbody>
-                             
+                                <tr >
+                                    <td>CC - 1002345987</td>
+                                    <td>Daniel Bohorquez</td>
+                                    <td>Colombia</td>
+                                    <td>3009875432</td>
+                                    <td>daniel@innventa.com</td>
+                                </tr>
+                                <tr >
+                                    <td>CC - 1098765432</td>
+                                    <td>Jennifer Restrepo</td>
+                                    <td>Colombia</td>
+                                    <td>3120987654</td>
+                                    <td>jennifer@innventa.com</td>
+                                </tr>
+
+                            </tbody>
+
                         )
 
-                    }
-                
+                }
+
 
             </table>
         </div>
