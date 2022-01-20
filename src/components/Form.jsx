@@ -1,9 +1,13 @@
 import React from 'react';
+import useAxiosNatl from '../hooks/useAxiosNatl';
 import '../styles/Form.css'
 
 export const Form = () => {
 
 
+    const {data:natls} = useAxiosNatl()
+    console.log(natls)
+    
     const handleSubmit = (e) => {
         e.preventDefault()
     }
@@ -27,27 +31,36 @@ export const Form = () => {
                         <div className="form-group col-md-10">
                             <label>Tipo Documento</label><br />
 
-                            <select className="form-control " name="typeId" onChange={handleChange}>
+                            <select className="form-control " name="typeId" onChange={handleChange} required >
                                 <option name="Seleccionar" value="Seleccionar">Seleccionar</option>
                                 <option name="C.C" value="C.C">C.C</option>
-                                <option name="T.I" value="T.I">T.I</option>
+                                <option name="T.P" value="T.P">T.P</option>
                                 <option name="C.E" value="C.E">C.E</option>
                             </select>
                         </div>
                         <div className="form-group col-md-10">
                             <label>Nombre(s)</label><br />
 
-                            <input className="form-control" name="names" onChange={handleChange} />
+                            <input className="form-control" name="names" onChange={handleChange} required />
                         </div>
                         <div className="form-group col-md-10">
                             <label>Nacionalidad</label><br />
 
-                            <input className="form-control" type="text" name="nacionality" onChange={handleChange} />
+                            <select className="form-control " name="nationality" onChange={handleChange} required >
+                                <option name="Seleccionar" value="Seleccionar">Seleccionar</option>
+                                {
+                                    natls.map((ctry, idx) =>(
+                                        <option name={ctry.name} value={ctry.name}>{ctry.name}</option>
+                                    ))
+                                }
+                                
+
+                            </select>
                         </div>
                         <div className="form-group col-md-10">
                             <label>Email</label><br />
 
-                            <input className="form-control" name="email" onChange={handleChange} />
+                            <input className="form-control" name="email" onChange={handleChange} required />
                         </div>
 
 
