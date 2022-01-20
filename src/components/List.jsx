@@ -128,6 +128,7 @@ export const List = () => {
                                 </tr>
                             
                              </tbody>
+                             {() => window.location.reload()}()
                         )
 
                     }
