@@ -6,7 +6,7 @@ import { useForm } from '../hooks/useForm';
 import { postUser } from '../helpers/postUser';
 import { getUser } from '../helpers/getUser';
 
-let usrsObj = {}
+
 
 export const Form = () => {
     const [values, handleInputChange, reset] = useForm({
@@ -30,14 +30,18 @@ export const Form = () => {
 
     }
 
-    const handleAdd = () => {
+    const handleAdd = async () => {
+        
+
         if (isFormValid()) {
+            
 
             values.completeName = values.firstName + ' ' + values.lastName
             console.log(values)
-            usrsObj = getUser()
-            postUser(usrsObj)
+
+            postUser(values)
             reset()
+
         }
     }
     const isFormValid = () => {
