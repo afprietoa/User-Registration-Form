@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAxiosNatl from '../hooks/useAxiosNatl';
 import '../styles/Form.css'
 import Swal from 'sweetalert2'
@@ -44,6 +44,8 @@ export const Form = () => {
 
         }
     }
+
+
     const isFormValid = () => {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         const regexNumber = /^[0-9]*$/;
@@ -102,17 +104,31 @@ export const Form = () => {
                         </div>
                         <div className="form-group col-md-10 mb-3">
                             <label>Nacionalidad :</label><br />
+                            {
+                                (natls) ? 
+                                (
+                                    <select className="form-control " name="nationality" value={nationality} onChange={handleInputChange} >
+                                    <option name="Seleccionar" value="">Seleccionar</option>
+                                    {
+                                        natls.map((ctry, idx) => (
+                                            <option key={idx} name={ctry.name} value={ctry.name}>{ctry.name}</option>
+                                        ))
+                                    }
+    
+    
+                                </select>
+                                ) :
+                                (
+                                    <select className="form-control " name="nationality" value={nationality} onChange={handleInputChange} >
+                                    <option name="Seleccionar" value="">Seleccionar</option>
+    
+    
+                                </select>
+                                )
+                                
+                            }
 
-                            <select className="form-control " name="nationality" value={nationality} onChange={handleInputChange} >
-                                <option name="Seleccionar" value="">Seleccionar</option>
-                                {
-                                    natls.map((ctry, idx) => (
-                                        <option key={idx} name={ctry.name} value={ctry.name}>{ctry.name}</option>
-                                    ))
-                                }
 
-
-                            </select>
                         </div>
                         <div className="form-group col-md-10 mb-3">
                             <label>Email :</label><br />

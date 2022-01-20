@@ -25,82 +25,115 @@ export const List = () => {
                         <th>Email</th>
                     </tr>
                 </thead>
+                {
+                    (users) ?
+                        (
+                            <tbody>
 
-                <tbody>
-                    {
-                        users.map((usr, idx) => (
-                            <tr key={idx}>
-                                {
-
-                                    (usr.sicCodeType === 'cédula de ciudadanía' || usr.sicCodeType === 'CC' || usr.sicCodeType === 'Cédula de Ciudadania' || usr.sicCodeType === 'Cedula de ciudadania') ?
-                                        (
-                                            <td>CC - {usr.sicCode}</td>
-                                        ) : (usr.sicCodeType === 'Pasaporte' || usr.sicCodeType === 'pasaporte' || usr.sicCodeType === 'PA') ?
-                                            (
-                                                <td>TP - {usr.sicCode}</td>
-                                            ) : (usr.sicCodeType === 'cédula de extranjería' || usr.sicCodeType === 'cedula') ?
-                                                (
-                                                    <td>CE - {usr.sicCode}</td>
-                                                ) : (
-                                                    <td> ?? - {
-                                                        (typeof (usr.sicCode) === 'undefined') ?
-                                                            '??' : (usr.sicCode === '') ? '??' : truncate(usr.sicCode)
-
-                                                    }</td>
-                                                )
-
-                                }
-                                {
-                                    (usr.completeName === ' ') ?
-                                        (
-                                            <td>??</td>
-                                        ) :
-                                        (
-                                            <td>{truncate(usr.completeName)}</td>
-                                        )
-                                }
-                                {
-                                    (typeof (usr.nationality) === 'undefined') ? (
-                                        <td>??</td>
-                                    ) : (usr.nationality === '') ?
-                                        (
-                                            <td>??</td>
-                                        ) :
-                                        (
-                                            <td>{truncate(usr.nationality)}</td>
-                                        )
-                                }
 
                                 {
-                                    (typeof (usr.mobilePhone) === 'undefined') ? (
-                                        <td>??</td>
-                                    ) : (usr.mobilePhone === '') ?
-                                        (
-                                            <td>??</td>
-                                        ) :
-                                        (
-                                            <td>{truncate(usr.mobilePhone)}</td>
-                                        )
-                                }
-                                                                {
-                                    (typeof (usr.email) === 'undefined') ? (
-                                        <td>??</td>
-                                    ) : (usr.email === '') ?
-                                        (
-                                            <td>??</td>
-                                        ) :
-                                        (
-                                            <td>{truncate(usr.email)}</td>
-                                        )
+                                    users.map((usr, idx) => (
+                                        <tr key={idx}>
+                                            {
+
+                                                (usr.sicCodeType === 'cédula de ciudadanía' || usr.sicCodeType === 'CC' || usr.sicCodeType === 'Cédula de Ciudadania' || usr.sicCodeType === 'Cedula de ciudadania') ?
+                                                    (
+                                                        <td>CC - {usr.sicCode}</td>
+                                                    ) : (usr.sicCodeType === 'Pasaporte' || usr.sicCodeType === 'pasaporte' || usr.sicCodeType === 'PA') ?
+                                                        (
+                                                            <td>TP - {usr.sicCode}</td>
+                                                        ) : (usr.sicCodeType === 'cédula de extranjería' || usr.sicCodeType === 'cedula') ?
+                                                            (
+                                                                <td>CE - {usr.sicCode}</td>
+                                                            ) : (
+                                                                <td> ?? - {
+                                                                    (typeof (usr.sicCode) === 'undefined') ?
+                                                                        '??' : (usr.sicCode === '') ? '??' : truncate(usr.sicCode)
+
+                                                                }</td>
+                                                            )
+
+                                            }
+                                            {
+                                                (usr.completeName === ' ') ?
+                                                    (
+                                                        <td>??</td>
+                                                    ) :
+                                                    (
+                                                        <td>{truncate(usr.completeName)}</td>
+                                                    )
+                                            }
+                                            {
+                                                (typeof (usr.nationality) === 'undefined') ? (
+                                                    <td>??</td>
+                                                ) : (usr.nationality === '') ?
+                                                    (
+                                                        <td>??</td>
+                                                    ) :
+                                                    (
+                                                        <td>{truncate(usr.nationality)}</td>
+                                                    )
+                                            }
+
+                                            {
+                                                (typeof (usr.mobilePhone) === 'undefined') ? (
+                                                    <td>??</td>
+                                                ) : (usr.mobilePhone === '') ?
+                                                    (
+                                                        <td>??</td>
+                                                    ) :
+                                                    (
+                                                        <td>{truncate(usr.mobilePhone)}</td>
+                                                    )
+                                            }
+                                            {
+                                                (typeof (usr.email) === 'undefined') ? (
+                                                    <td>??</td>
+                                                ) : (usr.email === '') ?
+                                                    (
+                                                        <td>??</td>
+                                                    ) :
+                                                    (
+                                                        <td>{truncate(usr.email)}</td>
+                                                    )
+                                            }
+
+                                        </tr>
+                                    ))
+
                                 }
 
-                            </tr>
-                        ))
+
+                            </tbody>
+                        ) :
+                        (
+                            <tbody>
+
+
+
+                                <tr >
+
+                                    <td>C?-sicCode</td>
+
+                                    <td>usr.completeName</td>
+
+                                    <td>nationality</td>
+
+                                    <td>mobilePhone</td>
+
+                                    <td>email</td>
+
+
+                                </tr>
+                                )
 
                     }
 
 
-                </tbody>
+                            </tbody>
+                        )
+                }
+
             </table>
         </div>
     );
